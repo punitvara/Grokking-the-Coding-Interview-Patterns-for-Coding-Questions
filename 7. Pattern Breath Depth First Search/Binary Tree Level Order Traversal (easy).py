@@ -38,6 +38,33 @@ class Solution:
                     q.append(element.right)
             final_list.append(current_list)
         return final_list
+
+# My answer 2
+from collections import deque
+class Solution:
+
+    def levelOrder(self, root: TreeNode) -> List[List[int]]:
+        final_list = []
+        if not root: return final_list
+        q = deque()
+        q.append(root)
+        level = 0
+        # Traverse until queue is empty
+        while q:
+            queue_length = len(q)
+            final_list.append([])
+            for _ in range(queue_length):
+                # add new empty list end of final list to fill current level elements
+                element = q.popleft()
+                final_list[level].append(element.val)
+
+                if element.left:
+                    q.append(element.left)
+                if element.right:
+                    q.append(element.right)
+            level += 1
+        return final_list
+        
 #answer
 from collections import deque
 
