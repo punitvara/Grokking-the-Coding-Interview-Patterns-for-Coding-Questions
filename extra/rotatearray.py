@@ -33,3 +33,29 @@ class Solution:
             result[(i+k) % length] = nums[i]
 
         nums[:] = result
+
+# O(1) Space and O(N) Time solution:
+class Solution:
+    def reverse(self, nums, start:int, end:int):
+        while start < end:
+            nums[start], nums[end] = nums[end], nums[start]
+            start = start +1
+            end = end -1
+    def rotate(self, nums: List[int], k: int) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        # Extra memory solution
+        if nums is None:
+            return nums
+        length = len(nums)
+
+        if k > length:
+            k = k % length
+
+        if  k == 0 or length == k:
+            return nums
+        self.reverse(nums, 0, length-1)
+        self.reverse(nums, 0, k-1)
+        self.reverse(nums, k, length-1)
+        
