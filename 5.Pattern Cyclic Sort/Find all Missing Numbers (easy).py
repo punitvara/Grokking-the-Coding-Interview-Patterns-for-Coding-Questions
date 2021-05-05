@@ -22,7 +22,7 @@ For example
 x = [3,2,2,1] result would be [1,2,3,2]
 x = [4,3,2,7,8,2,3,1] result would be [1, 2, 3, 4, 3, 2, 7, 8]
 '''
-
+#my code (cyclic sort)
 class Solution:
     def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
         i = 0
@@ -41,7 +41,19 @@ class Solution:
                 final_list.append(i+1)
         return final_list
 
+#someones else code without cyclic sort 
+def find_missing_numbers(nums):
+  missingNumbers = []
+  # TODO: Write your code here
+  for i in range(len(nums)):
+    j=abs(nums[i])-1
+    if nums[j] >= 0:
+      nums[j] = -nums[j]
 
+  for i in range(len(nums)):
+    if nums[i] > 0:
+      missingNumbers.append(i+1)
+  return missingNumbers
 
 #answer
 def find_missing_numbers(nums):
