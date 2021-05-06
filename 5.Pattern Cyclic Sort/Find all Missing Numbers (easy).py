@@ -41,19 +41,21 @@ class Solution:
                 final_list.append(i+1)
         return final_list
 
-#someones else code without cyclic sort 
-def find_missing_numbers(nums):
-  missingNumbers = []
-  # TODO: Write your code here
-  for i in range(len(nums)):
-    j=abs(nums[i])-1
-    if nums[j] >= 0:
-      nums[j] = -nums[j]
+#mycode2
+# consider array elements as index. Missing number means those index wont exist while traveling so those array elements remains unvisited. So return those index +1  as missing numbers.
+class Solution:
+    def findDisappearedNumbers(self, nums: List[int]) -> List[int]:
+        missingNumbers = []
+        # TODO: Write your code here
+        for i in range(len(nums)):
+            j=abs(nums[i])-1
+            if nums[j] >= 0:
+                nums[j] = -nums[j]
 
-  for i in range(len(nums)):
-    if nums[i] > 0:
-      missingNumbers.append(i+1)
-  return missingNumbers
+        for i in range(len(nums)):
+            if nums[i] > 0:
+                missingNumbers.append(i+1)
+        return missingNumbers
 
 #answer
 def find_missing_numbers(nums):
