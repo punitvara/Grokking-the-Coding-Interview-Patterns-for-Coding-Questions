@@ -9,7 +9,28 @@ Example 2:
 Input: [8, 3, 5, 2, 4, 6, 0, 1]
 Output: 7
 '''
+# mycode 1
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        # TODO: Write your code here
+        missing = len(nums)
 
+        # Remember index ^ element ^ length of array
+        for i, num in enumerate(nums):
+            missing ^= i ^ num
+
+        return missing
+
+# my code2
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        # TODO: Write your code here
+        length = len(nums)
+        expected_sum = (length* (length +1)) // 2
+        actual_sum = sum(nums)
+
+        return expected_sum - actual_sum
+            
 #answer
 def find_missing_number(nums):
   i, n = 0, len(nums)
