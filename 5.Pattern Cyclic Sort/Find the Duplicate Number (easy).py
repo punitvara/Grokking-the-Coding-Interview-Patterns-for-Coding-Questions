@@ -15,15 +15,21 @@ Output: 4
 '''
 #mycode
 
-def find_duplicate(nums):
-  # TODO: Write your code here
-  for i in range(len(nums)):
-    j=abs(nums[i])-1
-    if nums[j] > 0:
-      nums[j] = -nums[j]
-    else:
-      return j+1
-  return -1
+'''
+There are 1 to n elements given. If any one is missing and someone else will be repeated.
+if we consider array elements as index and visit them and convert visited to negative. If we visit same index again, element would be already negative so current element is duplicate. That should be returned.
+'''
+class Solution:
+    def findDuplicate(self, nums: List[int]) -> int:
+        i = 0
+        length = len(nums)
+        for i in range(length):
+            j = abs(nums[i]) - 1
+            if nums[j] > 0:
+                nums[j] = - nums[j]
+            else:
+                return j + 1
+        
 
 
 #mycode2
