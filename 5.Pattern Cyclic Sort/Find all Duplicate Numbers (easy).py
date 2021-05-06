@@ -12,6 +12,7 @@ Output: [3, 5]
 
 
 #mycode
+# if you solve single duplicate finding problem, you will understand this easily
 def find_all_duplicates(nums):
   duplicateNumbers = []
   # TODO: Write your code here
