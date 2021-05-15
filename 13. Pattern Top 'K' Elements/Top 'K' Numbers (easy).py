@@ -31,7 +31,7 @@ class Solution:
         #First element of list would be largest
         return min_heap[0]
 
-# my code 2
+# my code 2 (Try to solve problem this way. More generalized way to solve problems)
 # Solved using another technique other than used in goraking interview solutions
 # This could be easy to remember and use.
 
@@ -41,7 +41,7 @@ class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
         # put first 'K' numbers in the min heap
         min_heap = []
-        
+
         for i in range(len(nums)):
 
             if len(min_heap) ==k:
