@@ -31,6 +31,26 @@ class Solution:
         #First element of list would be largest
         return min_heap[0]
 
+# my code 2
+# Solved using another technique other than used in goraking interview solutions
+# This could be easy to remember and use.
+
+from heapq import *
+
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        # put first 'K' numbers in the min heap
+        min_heap = []
+        
+        for i in range(len(nums)):
+
+            if len(min_heap) ==k:
+                heappush(min_heap, nums[i])
+                heappop(min_heap)
+            else:
+                heappush(min_heap, nums[i])
+
+        return min_heap[0]
 
 #answer
 from heapq import *
